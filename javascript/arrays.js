@@ -3,7 +3,7 @@ var colorList = ["Red", "Black", "White", "Blue", "Ocher", "Yellow", "Pink"];
 
 //variables IN function (function scope), can see global variables
 
-var imageList1 = new Array();
+var imageList1 = [];
 
 //defining items in the imageList array
 imageList1[0] = "images/drawing/thumbs/artwork_1.jpg";
@@ -32,7 +32,7 @@ imageList1[22] = "images/drawing/thumbs/artwork_23.jpg";
 imageList1[23] = "images/drawing/thumbs/artwork_24.jpg";
 imageList1[24] = "images/drawing/thumbs/artwork_25.jpg";
 
-var imageList2 = new Array();
+var imageList2 = [];
 
 imageList2[0] = "images/oil/thumbs/artwork_1.jpg";
 imageList2[1] = "images/oil/thumbs/artwork_2.jpg";
@@ -43,7 +43,7 @@ imageList2[5] = "images/oil/thumbs/artwork_6.jpg";
 imageList2[6] = "images/oil/thumbs/artwork_7.jpg";
 imageList2[7] = "images/oil/thumbs/artwork_8.jpg";
 
-var imageList3 = new Array();
+var imageList3 = [];
 
 imageList3[0] = "images/watercolor/thumbs/artwork_1.jpg";
 imageList3[1] = "images/watercolor/thumbs/artwork_2.jpg";
@@ -60,35 +60,36 @@ imageList3[9] = "images/watercolor/thumbs/artwork_10.jpg";
 function buildThumbnails()
 {
   //hook onto the thumbs div
-  var drawingsDiv = document.getElementById("drawings");
-  var oilDiv = document.getElementById("oil");
-  var waterColorDiv = document.getElementById("waterColor");
+  var thumbsDiv = document.getElementById("thumbs");
   //create an output variable, it will be changed below so leave blank
-  var drawingOutput = "";
-  var oilOutput = "";
-  var waterColorOutput = "";
+  var output = "";
   
   //first part: counter (we set up 0 to start counting the loop)
   //second part: condition (the loop will keep looping as long as the condition is true.)
   //third part: incrementor (adds one to the counter AFTER the code is executed in the brackets
-  
+  output += '<div class="thumbs_block"> ';
   for(var i=0; i < imageList1.length; i++)
   {
     //concatenation assignment operator
-    drawingOutput += '<img src="' + imageList1[i] +'" />'; 
+    output += '<img src="' + imageList1[i] +'" />'; 
   }
+  output += '</div>';
+  
+  output += '<div class="thumbs_block"> ';
   for(var j=0; j < imageList2.length; j++)
   {
-    oilOutput += '<img src="' + imageList2[j] + '" />';
+    output += '<img src="' + imageList2[j] + '" />';
   }
+  output += '</div>';
+  
+  output += '<div class="thumbs_block"> ';
   for(var k=0; k < imageList3.length; k++)
   {
-    waterColorOutput += '<img src="' + imageList3[k] + '" />';
+    output += '<img src="' + imageList3[k] + '" />';
   }
+  output += '</div>';
   
-  drawingsDiv.innerHTML = drawingOutput;
-  oilDiv.innerHTML = oilOutput;
-  waterColorDiv.innerHTML = waterColorOutput;
+  thumbsDiv.innerHTML = output;
   
   /*thumbsDiv.innerHTML = 
   '<img src="' + imageList[0] + '" />' + 

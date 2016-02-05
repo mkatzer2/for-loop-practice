@@ -215,6 +215,11 @@ label{
     color: red;   
 }
 
+.thumbs_block{
+	padding: .3em;
+	margin: 2em;
+	background: rgba(139, 146, 139, .3);
+}
 
 
 
